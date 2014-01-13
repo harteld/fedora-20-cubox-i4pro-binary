@@ -1,0 +1,16 @@
+
+module custom-login 1.0;
+
+require {
+	type local_login_t;
+	type getty_t;
+	class memprotect mmap_zero;
+}
+
+#============= getty_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow getty_t self:memprotect mmap_zero;
+
+#============= local_login_t ==============
+allow local_login_t self:memprotect mmap_zero;
